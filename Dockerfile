@@ -1,13 +1,13 @@
-# Step 1: Maven aur JDK 22 ke sath code ko build karna
-FROM maven:3.9-eclipse-temurin-22 AS build
+# Step 1: Maven aur Java 22 ka environment lena
+FROM maven:3.9-eclipse-temurin-22
 WORKDIR /app
+
+# Step 2: Saari files copy karna aur build karna
 COPY . .
 RUN mvn clean package
 
-# Step 2: Exact JRE 22 image ka use karna
-FROM eclipse-temurin:22-jre-alpine
-WORKDIR /app
-# Yahan humne exact naam ki jagah *-jar-with-dependencies.jar kar diya ha
-COPY --from=build /app/target/*-jar-with-dependencies.jar app.jar
+# Render ko khush rakhne ke liye port expose
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+# Step 3: Shell ka use karke dynamic tarike se JAR file run karna
+CMD ["sh", "-c", "java -jar target/*-jar-with-dependencies.jar || java -jar target/*.jar"]
