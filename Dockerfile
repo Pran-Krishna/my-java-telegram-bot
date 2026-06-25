@@ -4,8 +4,8 @@ WORKDIR /app
 COPY . .
 RUN mvn clean package
 
-# Step 2: Sirf JRE 22 lekar JAR file ko run karna
-FROM eclipse-temurin-22-jre
+# Step 2: Exact JRE 22 image ka use karna jo Docker ko pakka mileygi
+FROM eclipse-temurin:22-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/MyTelegramBotProject-1.0-SNAPSHOT-jar-with-dependencies.jar app.jar
 EXPOSE 8080
