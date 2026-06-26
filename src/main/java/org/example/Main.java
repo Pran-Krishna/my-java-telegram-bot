@@ -28,7 +28,7 @@ public class Main {
 
         // 2. Ab tumhara Telegram Bot ka logic chalega
         // Token check kar lena bhai (Screenshot ke hisab se sahi hai)
-        String botToken = "8807394117:AAEUBcPfHkrT07-Bfjn08j51ZfZX-9WVIOI";
+        String botToken = "8807394117:AAEUBcPfHkrT07-BFjn08j51ZfZX-9WVI0I";
 
         try {
             TelegramBotsLongPollingApplication botsApplication = new TelegramBotsLongPollingApplication();
