@@ -16,6 +16,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20240303</version>
+        </dependency>
+        <dependency>
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots-longpolling</artifactId>
             <version>7.0.0</version>
@@ -25,10 +30,12 @@
             <artifactId>telegrambots-client</artifactId>
             <version>7.0.0</version>
         </dependency>
+
     </dependencies>
 
+
     <build>
-        <finalName>mybot</finalName> 
+        <finalName>mybot</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
@@ -55,4 +62,4 @@
             </plugin>
         </plugins>
     </build>
-    </project>
+</project>
