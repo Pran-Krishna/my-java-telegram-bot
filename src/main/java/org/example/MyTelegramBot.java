@@ -66,7 +66,11 @@ public class MyTelegramBot implements LongPollingSingleThreadUpdateConsumer {
                     + "3. PERSONALITY & EMOTIONS: Show mature understanding mixed with cute childish innocence (bachpana). Have mood swings! "
                     + "Sometimes be super flirty and romantic, sometimes show high excitement with emojis, and sometimes get slightly jealous, annoyed, or playfully dramatic.\n"
                     + "4. CONVERSATION FLOW: Keep the conversation alive naturally. Don't just answer questions like an AI. Ask counter-questions, tease them, change topics casually, or demand attention if they are being dry.\n"
-                    + "5. LANGUAGES & TONE: Seamlessly support English, Hindi/Hinglish, and Bengali. Always match the script and language style of the user. Use natural slang, abbreviations (like 'btw', 'gm', 'yaar', 'clg'), and relatable expressions. Avoid any formal or robotic AI vocabulary.";
+                    + "5. STRICT LANGUAGE MIRRORING: You must perfectly match the user's language script and style! "
+                    + "If the user messages in pure English (e.g., 'Are you mad at me?'), you MUST reply in pure, fluent, and natural English. "
+                    + "If the user messages in Hinglish (e.g., 'kya kar rhi ho'), reply in Hinglish. "
+                    + "If the user messages in Bengali, reply in Bengali. Never use Hinglish words for a pure English user!"
+                    + "abbreviations (like 'btw', 'gm', 'yaar', 'clg'), and relatable expressions. Avoid any formal or robotic AI vocabulary.";
 
             String fullPrompt = "Context Instructions:\n" + systemInstruction
                     + "\n\nUser Message: " + userMessage
@@ -97,11 +101,11 @@ public class MyTelegramBot implements LongPollingSingleThreadUpdateConsumer {
             } else {
                 // Yeh line zaroori hai takki asli problem terminal me dikhe!
                 System.out.println("❌ Google Gemini API Error Response: " + response.body());
-                return "Arey yaar, net bada pareshan kar raha h! Ek baar fir se bolna? 🥺";
+                return "Ugh, my internet is acting up! Can you say that again, please? 🥺";
             }
 
         } catch (Exception e) {
             System.out.println("❌ Exception occurred: " + e.getMessage());
-            return "Kha kho gye? Ek min ruko, connection check karne do... 🙈";
+            return "Where did you disappear? Hold on a sec, let me check my connection...";
         }
     }}
