@@ -7,7 +7,7 @@ import org.telegram.telegrambots.longpolling.TelegramBotsLongPollingApplication;
 
 public class Main {
     public static void main(String[] args) {
-        
+
         // 1. Render ko khush rakhne ke liye ek Asli Java Web Server shuru kar rahe hain
         try {
             int port = Integer.parseInt(System.getenv().getOrDefault("PORT", "8080"));
@@ -34,7 +34,7 @@ public class Main {
             TelegramBotsLongPollingApplication botsApplication = new TelegramBotsLongPollingApplication();
             botsApplication.registerBot(botToken, new MyTelegramBot());
             System.out.println("Java Bot ekdum mast chalu ho gaya hai bhai...");
-            
+
             // Thread ko zinda rakhne ke liye
             Thread.currentThread().join();
         } catch (Exception e) {
